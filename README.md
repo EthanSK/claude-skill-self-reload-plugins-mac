@@ -58,3 +58,7 @@ Writes structured NDJSON events to `~/.claude/logs/skills.log` (when the unified
 - **Windows**: [EthanSK/claude-skill-self-reload-plugins-windows](https://github.com/EthanSK/claude-skill-self-reload-plugins-windows) — process-tree walk + `claude.exe` parent fallback.
 
 Both share the goal: recover from MCP drops without asking the human to type `/reload-plugins`.
+
+## Weekly update checks
+
+The agent checks the configured public source on first skill use when a week has passed, using a shared local lease to avoid duplicate checks. It can install reviewed, compatible updates and tells you what changed; it preserves local edits and respects opt-outs. No background process is installed. Python 3 is needed for the date/lease helper; the skill can still be used without it. Copied installations need a trustworthy installation baseline; plugin installations use their host updater. See [the update procedure](references/public-updates.md).
